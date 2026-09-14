@@ -7,13 +7,14 @@ import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { TypewriterWord } from "@/components/home/TypewriterWord";
+import { media } from "@/data/media";
 
 export function HomeHero() {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-agency.jpg"
+          src={media.modernTechOfficeSkyline.src}
           alt=""
           fill
           priority
@@ -117,8 +118,8 @@ export function HomeHero() {
         >
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/70 shadow-[0_40px_100px_-40px_rgba(79,70,229,0.55)]">
             <Image
-              src="/images/about-team.jpg"
-              alt="Ascendedly operators collaborating"
+              src={media.teamCollaborationWorkspace.src}
+              alt={media.teamCollaborationWorkspace.alt}
               fill
               sizes="(max-width: 1024px) 90vw, 40vw"
               className="object-cover"

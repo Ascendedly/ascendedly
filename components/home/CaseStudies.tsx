@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
+import { media } from "@/data/media";
+
 const cases = [
   {
     metricValue: 240,
@@ -74,7 +76,7 @@ export function CaseStudies() {
   return (
     <section className="relative overflow-hidden py-28">
       <Image
-        src="/images/case-studies.jpg"
+        src={media.abstractBrandFlowRibbons.src}
         alt=""
         fill
         sizes="100vw"

@@ -30,7 +30,6 @@ export const siteConfig = {
     "technical SEO",
   ],
   nav: [
-    { label: "Homepage", href: "/" },
     { label: "About Us", href: "/about-us" },
     {
       label: "Services",

@@ -64,6 +64,7 @@ export interface ServiceData {
   metaDescription: string;
   keywords: string[];
   image: string;
+  imageAlt: string;
   accentFrom: string;
   accentTo: string;
   inclusions: ServiceInclusion[];
@@ -97,7 +98,9 @@ export const services: ServiceData[] = [
       "Core Web Vitals",
       "organic growth",
     ],
-    image: "/images/services/seo.jpg",
+    image: "/images/services/seo-analytics-dashboard.webp",
+    imageAlt:
+      "SEO domain overview dashboard showing AI visibility, organic traffic, keywords, and backlink metrics",
     accentFrom: "from-indigo-500",
     accentTo: "to-cyan-400",
     inclusions: [
@@ -218,7 +221,9 @@ export const services: ServiceData[] = [
       "paid social",
       "brand narrative",
     ],
-    image: "/images/services/smm.jpg",
+    image: "/images/services/smm-ads-analytics-dashboard.webp",
+    imageAlt:
+      "Social media ads analytics dashboard with reach, impressions, CTR, ROAS, and campaign performance charts",
     accentFrom: "from-fuchsia-500",
     accentTo: "to-indigo-400",
     inclusions: [
@@ -330,7 +335,9 @@ export const services: ServiceData[] = [
       "cloud-native platforms",
       "React engineering",
     ],
-    image: "/images/services/web-development.jpg",
+    image: "/images/services/web-platforms-and-code-workstation.webp",
+    imageAlt:
+      "Dual-monitor web development desk with website platform logos and a dark code editor",
     accentFrom: "from-cyan-400",
     accentTo: "to-indigo-500",
     inclusions: [
@@ -456,7 +463,9 @@ export const services: ServiceData[] = [
       "LLM fine-tuning",
       "enterprise AI",
     ],
-    image: "/images/services/gen-ai.jpg",
+    image: "/images/services/gen-ai-platforms-and-n8n-workflow.webp",
+    imageAlt:
+      "Gen AI web apps board beside an n8n-style automation workflow for chatbots and customer support",
     accentFrom: "from-violet-500",
     accentTo: "to-cyan-400",
     inclusions: [
@@ -575,7 +584,9 @@ export const services: ServiceData[] = [
       "enterprise mobile",
       "cross-platform engineering",
     ],
-    image: "/images/services/app-development.jpg",
+    image: "/images/services/mobile-app-technologies-devices.webp",
+    imageAlt:
+      "Mobile devices showing app technology platforms and a mobile development coding environment",
     accentFrom: "from-emerald-400",
     accentTo: "to-cyan-500",
     inclusions: [

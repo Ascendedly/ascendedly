@@ -4,6 +4,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Fingerprint, Lock, Users } from "lucide-react";
 
+import { media } from "@/data/media";
+
 const pillars = [
   {
     icon: Users,
@@ -35,8 +37,8 @@ export function WhyAscendedly() {
         >
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-glow">
             <Image
-              src="/images/contact-office.jpg"
-              alt="Ascendedly workspace"
+              src={media.ascendedlyClientPrototypeReview.src}
+              alt={media.ascendedlyClientPrototypeReview.alt}
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
               className="object-cover"

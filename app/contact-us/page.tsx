@@ -5,6 +5,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 import { ContactForm } from "@/components/contact/ContactForm";
 import { SectionBackdrop } from "@/components/layout/SectionBackdrop";
+import { media } from "@/data/media";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -28,8 +29,8 @@ export default function ContactPage() {
         <div>
           <div className="relative mb-8 aspect-[16/10] overflow-hidden rounded-2xl border border-border/70 shadow-sm">
             <Image
-              src="/images/contact-office.jpg"
-              alt="Ascendedly San Francisco office reception"
+              src={media.officeReceptionHarborView.src}
+              alt={media.officeReceptionHarborView.alt}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 40vw"

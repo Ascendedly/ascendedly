@@ -27,7 +27,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { cn } from "@/lib/utils";
 
 const primaryLinks = [
-  { label: "Homepage", href: "/" },
   { label: "About Us", href: "/about-us" },
   { label: "Blogs", href: "/blogs" },
   { label: "Contact Us", href: "/contact-us" },
@@ -47,9 +46,6 @@ export function Navbar() {
         <Logo />
 
         <div className="hidden items-center gap-1 lg:flex">
-          <NavLink href="/" active={pathname === "/"}>
-            Homepage
-          </NavLink>
           <NavLink href="/about-us" active={pathname === "/about-us"}>
             About Us
           </NavLink>

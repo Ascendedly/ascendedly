@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { media } from "@/data/media";
 
 export function AboutHero() {
   return (
@@ -87,8 +88,8 @@ export function AboutHero() {
           <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-cyan-400/30 via-indigo-400/20 to-fuchsia-400/30 blur-xl" />
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-white/80 bg-white shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)] sm:aspect-[5/6]">
             <Image
-              src="/images/about-team.jpg"
-              alt="Ascendedly team collaborating"
+              src={media.teamCollaborationWorkspace.src}
+              alt={media.teamCollaborationWorkspace.alt}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 42vw"

@@ -18,6 +18,7 @@ export interface BlogPost {
   readTime: string;
   keywords: string[];
   image: string;
+  imageAlt: string;
   content: string[];
 }
 
@@ -28,7 +29,9 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Enterprise organic growth stalls when search engine optimization is treated as a PDF. Here is how we operationalize crawl health, Core Web Vitals, and programmatic architecture as a release train.",
     category: "SEO",
-    image: "/images/services/seo.jpg",
+    image: "/images/services/seo-analytics-dashboard.webp",
+    imageAlt:
+      "SEO domain overview dashboard showing AI visibility, organic traffic, keywords, and backlink metrics",
     author: "Amelia Cho",
     role: "Principal SEO Strategist",
     publishedAt: "2026-08-12",
@@ -48,7 +51,9 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Traffic is a lagging vanity metric. A revenue-driven search strategy maps entities and intent to sales stages so organic demand actually reaches the forecast.",
     category: "SEO",
-    image: "/images/services/seo.jpg",
+    image: "/images/services/seo-analytics-dashboard.webp",
+    imageAlt:
+      "SEO domain overview dashboard showing AI visibility, organic traffic, keywords, and backlink metrics",
     author: "Marcus Ellison",
     role: "Growth Marketing Director",
     publishedAt: "2026-07-02",
@@ -67,7 +72,9 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "AI transformation dies in the CISO’s inbox when retrieval-augmented generation cannot prove where an answer came from. Production RAG is an access-control problem first.",
     category: "Artificial Intelligence",
-    image: "/images/services/gen-ai.jpg",
+    image: "/images/services/gen-ai-platforms-and-n8n-workflow.webp",
+    imageAlt:
+      "Gen AI web apps board beside an n8n-style automation workflow for chatbots and customer support",
     author: "Dr. Priya Nandakumar",
     role: "Head of AI Systems",
     publishedAt: "2026-08-28",
@@ -86,7 +93,9 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Agent workflows create leverage only when refunds, legal language, and VIP accounts stay behind explicit gates. Here is the control plane we ship with every production agent.",
     category: "Artificial Intelligence",
-    image: "/images/services/gen-ai.jpg",
+    image: "/images/services/gen-ai-platforms-and-n8n-workflow.webp",
+    imageAlt:
+      "Gen AI web apps board beside an n8n-style automation workflow for chatbots and customer support",
     author: "Julian Park",
     role: "Principal AI Engineer",
     publishedAt: "2026-06-18",
@@ -105,7 +114,9 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Server Components, streaming, and typed data layers are not blog-demo features. They are how we keep enterprise software fast, cacheable, and maintainable after the original team rotates.",
     category: "Engineering",
-    image: "/images/services/web-development.jpg",
+    image: "/images/services/web-platforms-and-code-workstation.webp",
+    imageAlt:
+      "Dual-monitor web development desk with website platform logos and a dark code editor",
     author: "Sofia Rahman",
     role: "Director of Engineering",
     publishedAt: "2026-08-05",
@@ -124,7 +135,9 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "A modern component system is documentation, tokens, and contribution rules, not a Figma file with 400 variants. This is how we hand enterprise UI to internal teams without a second rebuild.",
     category: "Engineering",
-    image: "/images/services/web-development.jpg",
+    image: "/images/services/web-platforms-and-code-workstation.webp",
+    imageAlt:
+      "Dual-monitor web development desk with website platform logos and a dark code editor",
     author: "Elena Voss",
     role: "Head of Product Design",
     publishedAt: "2026-05-21",
@@ -143,7 +156,9 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Growth marketing on LinkedIn fails when organic thought leadership and paid acquisition are owned by different agencies with different goals. Unify the narrative and the pipeline will follow.",
     category: "Social Strategy",
-    image: "/images/services/smm.jpg",
+    image: "/images/services/smm-ads-analytics-dashboard.webp",
+    imageAlt:
+      "Social media ads analytics dashboard with reach, impressions, CTR, ROAS, and campaign performance charts",
     author: "Noah Whitaker",
     role: "Social Performance Lead",
     publishedAt: "2026-07-24",
@@ -162,7 +177,9 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Meta and TikTok punish slow creative. The brands that win treat asset production as a factory with hypotheses, not as a quarterly brand film.",
     category: "Social Strategy",
-    image: "/images/services/smm.jpg",
+    image: "/images/services/smm-ads-analytics-dashboard.webp",
+    imageAlt:
+      "Social media ads analytics dashboard with reach, impressions, CTR, ROAS, and campaign performance charts",
     author: "Camila Duarte",
     role: "Creative Strategist",
     publishedAt: "2026-04-09",

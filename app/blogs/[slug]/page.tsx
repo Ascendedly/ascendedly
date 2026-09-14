@@ -57,7 +57,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="relative mb-8 aspect-[16/9] overflow-hidden rounded-2xl border border-border/70 shadow-sm">
           <Image
             src={post.image}
-            alt=""
+            alt={post.imageAlt}
             fill
             priority
             sizes="(max-width: 768px) 100vw, 768px"

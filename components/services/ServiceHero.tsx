@@ -82,14 +82,14 @@ export function ServiceHero({ service }: { service: ServiceData }) {
             transition={{ duration: 0.7, delay: 0.18 }}
             className="overflow-hidden rounded-2xl border border-border/70 bg-white shadow-glow"
           >
-            <div className="relative aspect-[4/3]">
+            <div className="relative aspect-[16/9] overflow-hidden bg-slate-100">
               <Image
                 src={service.image}
-                alt={`${service.name} delivery at Ascendedly`}
+                alt={service.imageAlt}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 45vw"
-                className="object-cover"
+                className="object-cover object-center"
               />
             </div>
             <div className="space-y-4 p-6 md:p-8">

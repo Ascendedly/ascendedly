@@ -5,11 +5,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
+import { media } from "@/data/media";
+
 export function CtaBand() {
   return (
     <section className="relative overflow-hidden py-28">
       <Image
-        src="/images/hero-agency.jpg"
+        src={media.modernTechOfficeSkyline.src}
         alt=""
         fill
         sizes="100vw"

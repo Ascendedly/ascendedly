@@ -56,7 +56,6 @@ export function Footer() {
             </p>
             <ul className="space-y-3 text-sm">
               {[
-                ["Home", "/"],
                 ["About Us", "/about-us"],
                 ["Services", "/#services"],
                 ["Blogs", "/blogs"],
