@@ -1,69 +1,140 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { Instagram, Linkedin, Twitter } from "lucide-react";
 
-const leaders = [
+import { media } from "@/data/media";
+
+type Leader = {
+  name: string;
+  role: string;
+  image: string;
+  imageAlt: string;
+  social: {
+    linkedin: string;
+    x: string;
+    instagram: string;
+  };
+};
+
+const leaders: Leader[] = [
   {
     name: "Maya Ellison",
     role: "Founder & Chief Executive",
-    focus: "Growth systems · Board narrative",
-    bio: "Maya spent a decade building growth and product orgs inside multi-product B2B companies before founding Ascendedly. She holds operators to a simple bar: if it cannot be briefed to a board in one page, it is not a strategy.",
-    initials: "ME",
+    image: media.mayaEllisonPortrait.src,
+    imageAlt: media.mayaEllisonPortrait.alt,
+    social: {
+      linkedin: "https://www.linkedin.com/company/ascendedly",
+      x: "https://x.com/ascendedly",
+      instagram: "https://www.instagram.com/ascendedly",
+    },
   },
   {
     name: "Rafael Okonkwo",
     role: "Chief Technology Officer",
-    focus: "Platform · Reliability",
-    bio: "Rafael leads enterprise software architecture across Next.js platforms, mobile, and cloud. He previously ran platform engineering for logistics and fintech products that could not take downtime as a lifestyle.",
-    initials: "RO",
+    image: media.rafaelOkonkwoPortrait.src,
+    imageAlt: media.rafaelOkonkwoPortrait.alt,
+    social: {
+      linkedin: "https://www.linkedin.com/company/ascendedly",
+      x: "https://x.com/ascendedly",
+      instagram: "https://www.instagram.com/ascendedly",
+    },
   },
   {
     name: "Dr. Priya Nandakumar",
     role: "Head of AI Systems",
-    focus: "RAG · Evaluation · Agents",
-    bio: "Priya designs production RAG, agents, and evaluation harnesses. Her research background in information retrieval is why our generative AI work starts with permissions and citations, not with a chatbot theme.",
-    initials: "PN",
+    image: media.priyaNandakumarPortrait.src,
+    imageAlt: media.priyaNandakumarPortrait.alt,
+    social: {
+      linkedin: "https://www.linkedin.com/company/ascendedly",
+      x: "https://x.com/ascendedly",
+      instagram: "https://www.instagram.com/ascendedly",
+    },
   },
 ];
 
 export function AboutLeadership() {
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-slate-50 py-20 md:py-28">
       <div className="container">
-        <div className="max-w-2xl">
+        <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-indigo-700">
             Leadership
           </p>
-          <h2 className="mt-3 text-3xl font-semibold text-slate-950 md:text-4xl lg:text-5xl">
-            Principals stay on the work
+          <h2 className="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">
+            Our Leadership
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-slate-700">
-            The people below still review architecture, narratives, and model evaluations, not
-            only kickoff decks.
+          <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+            Principals stay on the work. Architecture, narrative, and model evaluation still go
+            through the people below, not only the kickoff deck.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className="mx-auto mt-14 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {leaders.map((leader, index) => (
             <motion.article
               key={leader.name}
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08, duration: 0.45 }}
-              className="rounded-2xl border border-slate-200 bg-slate-50 p-7 md:p-8"
+              className="group relative aspect-[3/4] cursor-pointer overflow-hidden rounded-[1.75rem] bg-white shadow-[0_20px_50px_-28px_rgba(15,23,42,0.35)] outline-none focus-within:ring-2 focus-within:ring-indigo-400/60"
+              tabIndex={0}
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-700 text-base font-semibold text-white">
-                {leader.initials}
+              <Image
+                src={leader.image}
+                alt={leader.imageAlt}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04] group-focus-within:scale-[1.04]"
+              />
+
+              {/* Soft bottom fade so reveal panel reads cleanly */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-slate-950/35 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100"
+              />
+
+              <div
+                className="absolute inset-x-3 bottom-3 translate-y-[calc(100%+0.75rem)] rounded-2xl bg-white px-5 py-4 opacity-0 shadow-[0_12px_40px_-18px_rgba(15,23,42,0.45)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 max-md:translate-y-0 max-md:opacity-100"
+              >
+                <h3 className="text-lg font-semibold tracking-tight text-slate-950">
+                  {leader.name}
+                </h3>
+                <p className="mt-0.5 text-sm text-slate-500">{leader.role}</p>
+
+                <div className="mt-3 flex items-center gap-2">
+                  <Link
+                    href={leader.social.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${leader.name} on LinkedIn`}
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 text-indigo-700 transition-colors hover:bg-indigo-100"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href={leader.social.x}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${leader.name} on X`}
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 text-indigo-700 transition-colors hover:bg-indigo-100"
+                  >
+                    <Twitter className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href={leader.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${leader.name} on Instagram`}
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 text-indigo-700 transition-colors hover:bg-indigo-100"
+                  >
+                    <Instagram className="h-4 w-4" />
+                  </Link>
+                </div>
               </div>
-              <h3 className="mt-5 text-xl font-semibold text-slate-950 md:text-2xl">
-                {leader.name}
-              </h3>
-              <p className="mt-1 text-sm font-medium text-indigo-700">{leader.role}</p>
-              <p className="mt-2 text-xs font-medium uppercase tracking-[0.14em] text-slate-500">
-                {leader.focus}
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-slate-700">{leader.bio}</p>
             </motion.article>
           ))}
         </div>

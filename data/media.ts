@@ -39,6 +39,20 @@ export const media = {
     alt: "Two Ascendedly consultants presenting a website and mobile app prototype to a client in a meeting room",
   },
 
+  mayaEllisonPortrait: {
+    src: "/images/leadership/maya-ellison.jpg",
+    alt: "Portrait of Maya Ellison, Founder and Chief Executive of Ascendedly",
+  },
+  rafaelOkonkwoPortrait: {
+    src: "/images/leadership/rafael-okonkwo.jpg",
+    alt: "Portrait of Rafael Okonkwo, Chief Technology Officer of Ascendedly",
+  },
+  priyaNandakumarPortrait: {
+    src: "/images/leadership/priya-nandakumar.jpg",
+    alt: "Portrait of Dr. Priya Nandakumar, Head of AI Systems at Ascendedly",
+  },
+
+
   seoAnalyticsDashboard: {
     src: "/images/services/seo-analytics-dashboard.webp",
     alt: "SEO domain overview dashboard showing AI visibility, organic traffic, keywords, and backlink metrics",

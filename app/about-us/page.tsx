@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 
 import { AboutHero } from "@/components/about/AboutHero";
 import { AboutLeadership } from "@/components/about/AboutLeadership";
+import { AboutModel } from "@/components/about/AboutModel";
 import { AboutPrinciples } from "@/components/about/AboutPrinciples";
-import { AboutValues } from "@/components/about/AboutValues";
-import { AboutVision } from "@/components/about/AboutVision";
+import { AboutProof } from "@/components/about/AboutProof";
+import { AboutStory } from "@/components/about/AboutStory";
 import { CtaBand } from "@/components/home/CtaBand";
 
 export const metadata: Metadata = {
-  title: "About Us | Engineering Principles & Leadership",
+  title: "About Ascendedly | Mission, Model & Leadership",
   description:
-    "Ascendedly is a B2B technology and growth agency. Learn our vision, core engineering principles, client delivery values, and the leadership that runs search, software, and AI transformation.",
+    "Ascendedly is a B2B technology and growth agency. Learn how we unite search, software, growth, and generative AI under one accountable delivery surface.",
   keywords: [
     "digital agency leadership",
     "enterprise software partner",
@@ -24,9 +25,10 @@ export default function AboutPage() {
   return (
     <>
       <AboutHero />
-      <AboutVision />
+      <AboutStory />
+      <AboutProof />
+      <AboutModel />
       <AboutPrinciples />
-      <AboutValues />
       <AboutLeadership />
       <CtaBand />
     </>
