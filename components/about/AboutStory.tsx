@@ -18,21 +18,20 @@ export function AboutStory() {
             Our story
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">
-            One commercial system. One pod. One P&L.
+            One team. One plan. One set of results.
           </h2>
           <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-700 md:text-lg">
             <p>
-              Most digital work still arrives as four vendors: SEO, social, engineering, and AI.
-              Buyers do not live four stories. They live revenue, risk, and time.
+              Most companies still hire four separate vendors for SEO, social, engineering, and AI.
+              You do not need four separate stories. You need revenue, lower risk, and faster delivery.
             </p>
             <p>
-              Ascendedly was built to close that gap. We staff hybrid pods so discovery, product,
-              and growth move in the same operating cadence, with principals who stay on the work
-              after kickoff.
+              Ascendedly was built to close that gap. Our mixed teams keep discovery, product, and
+              growth moving together, and senior people stay on the work after the project starts.
             </p>
             <p>
-              If we are not the right firm, discovery ends with a clear no. If we are, you leave
-              with an operating plan you can brief to a board.
+              If we are not the right fit, we say so early. If we are, you leave with a clear plan
+              you can share with your leadership team.
             </p>
           </div>
         </motion.div>

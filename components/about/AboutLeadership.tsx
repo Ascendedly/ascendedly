@@ -67,8 +67,8 @@ export function AboutLeadership() {
             Our Leadership
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-            Principals stay on the work. Architecture, narrative, and model evaluation still go
-            through the people below, not only the kickoff deck.
+            Senior leaders stay involved in the work. Architecture, strategy, and AI quality still
+            go through the people below, not only the first meeting deck.
           </p>
         </div>
 

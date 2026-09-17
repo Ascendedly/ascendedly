@@ -21,7 +21,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Ascendedly | Enterprise Software, SEO & AI Transformation",
+    default: "Ascendedly | Software, SEO & AI for Growing Companies",
     template: "%s | Ascendedly",
   },
   description: siteConfig.description,
@@ -43,12 +43,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Ascendedly | Enterprise Software, SEO & AI Transformation",
+    title: "Ascendedly | Software, SEO & AI for Growing Companies",
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ascendedly | Enterprise Software, SEO & AI Transformation",
+    title: "Ascendedly | Software, SEO & AI for Growing Companies",
     description: siteConfig.description,
   },
   robots: {
@@ -79,18 +79,18 @@ const jsonLd = {
   priceRange: "$$$$",
   address: {
     "@type": "PostalAddress",
-    streetAddress: siteConfig.address.line1,
+    streetAddress: siteConfig.address.full,
     addressLocality: siteConfig.address.city,
     addressRegion: siteConfig.address.region,
-    postalCode: siteConfig.address.postal,
-    addressCountry: "US",
+    postalCode: siteConfig.address.postal || undefined,
+    addressCountry: "PK",
   },
-  openingHours: "Mo-Fr 09:00-18:00",
+  openingHours: "Mo-Fr 09:00-17:00",
   knowsAbout: [
     "Search engine optimization",
     "Growth marketing",
     "Enterprise software",
-    "AI transformation",
+    "AI consulting",
     "Web development",
     "App development",
     "Generative AI",

@@ -30,11 +30,11 @@ export function CtaBand() {
             Next step
           </p>
           <h2 className="mt-4 text-3xl font-semibold text-white md:text-5xl">
-            Bring the brief. Leave with an operating plan.
+            Bring the brief. Leave with a clear plan.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-200">
-            Discovery is a five-day paid sprint: stack review, opportunity map, and a scoped first
-            quarter. If we are not the right firm, we say so before a statement of work exists.
+            Discovery is a five-day paid week: a systems review, opportunity map, and a scoped first
+            quarter. If we are not the right firm, we say so before any contract is written.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link

@@ -66,13 +66,14 @@ export function ServiceShowcase() {
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-indigo-700">
-            Capability suite
+            Our services
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">
-            Five practices. One delivery surface.
+            Five services. One accountable team.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-700">
-            Open any practice, model scope in the calculator, and lock an estimate into discovery.
+            Open any service, estimate scope in the calculator, and bring that estimate into
+            discovery.
           </p>
         </div>
 

@@ -29,12 +29,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 
 const steps = [
-  { id: 1, title: "Identity", copy: "Who should we brief the team about?" },
-  { id: 2, title: "Scope", copy: "Which capability and capital range?" },
-  { id: 3, title: "Brief", copy: "What does success look like in 90 days?" },
+  { id: 1, title: "About you", copy: "Who should we contact?" },
+  { id: 2, title: "Scope", copy: "Service and budget" },
+  { id: 3, title: "Brief", copy: "What success looks like" },
 ] as const;
+
+const fieldClass =
+  "h-12 rounded-xl border-slate-200 bg-slate-50/80 px-4 shadow-none transition focus-visible:bg-white focus-visible:ring-indigo-500/30";
 
 export function ContactForm() {
   const searchParams = useSearchParams();
@@ -108,12 +112,17 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-emerald-400/30 bg-emerald-400/10 p-8 text-center shadow-glow backdrop-blur-xl">
-        <CheckCircle2 className="mx-auto h-12 w-12 text-emerald-300" />
-        <h2 className="mt-4 text-2xl font-semibold">Brief received. Partners are assembling.</h2>
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          Thank you. A principal from the relevant practice will reply within one business day with
-          proposed discovery times. Check the inbox for {form.getValues("email")}.
+      <div className="rounded-3xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-8 text-center md:p-10">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
+          <CheckCircle2 className="h-7 w-7" />
+        </div>
+        <h3 className="mt-5 text-2xl font-semibold text-slate-950">
+          Message received. Our team is on it.
+        </h3>
+        <p className="mt-3 text-sm leading-relaxed text-slate-600">
+          A senior lead from the relevant service will reply within one business day with proposed
+          discovery times. Check the inbox for{" "}
+          <span className="font-medium text-slate-900">{form.getValues("email")}</span>.
         </p>
       </div>
     );
@@ -124,30 +133,47 @@ export function ContactForm() {
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8" noValidate>
-      <ol className="grid grid-cols-3 gap-2">
-        {steps.map((item) => (
-          <li
-            key={item.id}
-            className={`rounded-xl border px-3 py-3 text-left ${
-              item.id === step
-                ? "border-primary/50 bg-primary/15"
-                : item.id < step
-                  ? "border-cyan-300 bg-cyan-50"
-                  : "border-border/70 bg-white"
-            }`}
-          >
-            <p className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-              Step {item.id}
-            </p>
-            <p className="mt-1 text-sm font-medium">{item.title}</p>
-          </li>
-        ))}
+      <ol className="grid grid-cols-3 gap-2 md:gap-3">
+        {steps.map((item) => {
+          const active = item.id === step;
+          const done = item.id < step;
+          return (
+            <li
+              key={item.id}
+              className={cn(
+                "relative overflow-hidden rounded-2xl border px-3 py-3 transition md:px-4 md:py-3.5",
+                active && "border-indigo-300 bg-gradient-to-br from-indigo-50 to-cyan-50 shadow-sm",
+                done && "border-cyan-200 bg-cyan-50/70",
+                !active && !done && "border-slate-200 bg-slate-50/80"
+              )}
+            >
+              <p
+                className={cn(
+                  "text-[10px] font-semibold uppercase tracking-[0.16em]",
+                  active ? "text-indigo-700" : "text-slate-400"
+                )}
+              >
+                Step {item.id}
+              </p>
+              <p className="mt-1 text-sm font-semibold text-slate-950">{item.title}</p>
+              <p className="mt-0.5 hidden text-xs text-slate-500 sm:block">{item.copy}</p>
+              {active ? (
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-cyan-400 via-indigo-500 to-fuchsia-500"
+                />
+              ) : null}
+            </li>
+          );
+        })}
       </ol>
 
       {estimate ? (
-        <div className="rounded-xl border border-indigo-100 bg-indigo-50 p-4 text-sm">
-          <p className="font-medium text-indigo-800">Estimate locked from {estimate.serviceName}</p>
-          <p className="mt-1 text-muted-foreground">
+        <div className="rounded-2xl border border-indigo-100 bg-indigo-50/80 p-4 text-sm">
+          <p className="font-semibold text-indigo-900">
+            Estimate locked from {estimate.serviceName}
+          </p>
+          <p className="mt-1 text-slate-600">
             {estimate.investmentLabel} · {estimate.timeline} · {estimate.teamSize}
           </p>
         </div>
@@ -156,20 +182,31 @@ export function ContactForm() {
       {step === 1 ? (
         <div className="space-y-5">
           <div className="space-y-2">
-            <Label htmlFor="name">Name</Label>
-            <Input id="name" autoComplete="name" placeholder="Jordan Hale" {...form.register("name")} />
-            {errors.name ? <p className="text-sm text-red-400">{errors.name.message}</p> : null}
+            <Label htmlFor="name" className="text-slate-700">
+              Name
+            </Label>
+            <Input
+              id="name"
+              autoComplete="name"
+              placeholder="Jordan Hale"
+              className={fieldClass}
+              {...form.register("name")}
+            />
+            {errors.name ? <p className="text-sm text-red-500">{errors.name.message}</p> : null}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email">Work email</Label>
+            <Label htmlFor="email" className="text-slate-700">
+              Work email
+            </Label>
             <Input
               id="email"
               type="email"
               autoComplete="email"
               placeholder="jordan@company.com"
+              className={fieldClass}
               {...form.register("email")}
             />
-            {errors.email ? <p className="text-sm text-red-400">{errors.email.message}</p> : null}
+            {errors.email ? <p className="text-sm text-red-500">{errors.email.message}</p> : null}
           </div>
         </div>
       ) : null}
@@ -177,12 +214,14 @@ export function ContactForm() {
       {step === 2 ? (
         <div className="space-y-5">
           <div className="space-y-2">
-            <Label>Service selection</Label>
+            <Label className="text-slate-700">Service</Label>
             <Select
               value={selectedService}
-              onValueChange={(value) => form.setValue("service", value as ServiceSlug, { shouldValidate: true })}
+              onValueChange={(value) =>
+                form.setValue("service", value as ServiceSlug, { shouldValidate: true })
+              }
             >
-              <SelectTrigger aria-label="Service selection">
+              <SelectTrigger aria-label="Service" className={cn(fieldClass, "w-full")}>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -193,17 +232,21 @@ export function ContactForm() {
                 ))}
               </SelectContent>
             </Select>
-            {errors.service ? <p className="text-sm text-red-400">{errors.service.message}</p> : null}
+            {errors.service ? (
+              <p className="text-sm text-red-500">{errors.service.message}</p>
+            ) : null}
           </div>
           <div className="space-y-2">
-            <Label>Budget bracket</Label>
+            <Label className="text-slate-700">Budget range</Label>
             <Select
               value={form.watch("budget")}
               onValueChange={(value) =>
-                form.setValue("budget", value as ContactFormValues["budget"], { shouldValidate: true })
+                form.setValue("budget", value as ContactFormValues["budget"], {
+                  shouldValidate: true,
+                })
               }
             >
-              <SelectTrigger aria-label="Budget bracket">
+              <SelectTrigger aria-label="Budget range" className={cn(fieldClass, "w-full")}>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -214,7 +257,7 @@ export function ContactForm() {
                 ))}
               </SelectContent>
             </Select>
-            {errors.budget ? <p className="text-sm text-red-400">{errors.budget.message}</p> : null}
+            {errors.budget ? <p className="text-sm text-red-500">{errors.budget.message}</p> : null}
           </div>
         </div>
       ) : null}
@@ -222,25 +265,35 @@ export function ContactForm() {
       {step === 3 ? (
         <div className="space-y-5">
           <div className="space-y-2">
-            <Label htmlFor="message">Message</Label>
+            <Label htmlFor="message" className="text-slate-700">
+              Message
+            </Label>
             <Textarea
               id="message"
-              placeholder="Share the product, the constraint, and what a successful first quarter looks like."
+              placeholder="Tell us about your product, the main challenge, and what a successful first quarter looks like."
+              className="min-h-[140px] rounded-xl border-slate-200 bg-slate-50/80 px-4 py-3 shadow-none focus-visible:bg-white focus-visible:ring-indigo-500/30"
               {...form.register("message")}
             />
-            {errors.message ? <p className="text-sm text-red-400">{errors.message.message}</p> : null}
+            {errors.message ? (
+              <p className="text-sm text-red-500">{errors.message.message}</p>
+            ) : null}
           </div>
           {form.watch("estimateNote") ? (
-            <p className="rounded-lg border border-border/50 bg-slate-50 p-3 text-xs text-muted-foreground">
+            <p className="rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs leading-relaxed text-slate-500">
               {form.watch("estimateNote")}
             </p>
           ) : null}
         </div>
       ) : null}
 
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex items-center justify-between gap-3 border-t border-slate-100 pt-6">
         {step > 1 ? (
-          <Button type="button" variant="outline" onClick={() => setStep((current) => current - 1)}>
+          <Button
+            type="button"
+            variant="outline"
+            className="h-11 rounded-xl"
+            onClick={() => setStep((current) => current - 1)}
+          >
             <ArrowLeft className="h-4 w-4" />
             Back
           </Button>
@@ -249,14 +302,14 @@ export function ContactForm() {
         )}
 
         {step < 3 ? (
-          <Button type="button" onClick={nextStep}>
+          <Button type="button" className="h-11 rounded-xl px-6" onClick={nextStep}>
             Continue
             <ArrowRight className="h-4 w-4" />
           </Button>
         ) : (
-          <Button type="submit" disabled={submitting}>
+          <Button type="submit" className="h-11 rounded-xl px-6" disabled={submitting}>
             {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
-            {submitting ? "Sending brief" : "Submit inquiry"}
+            {submitting ? "Sending…" : "Submit inquiry"}
           </Button>
         )}
       </div>

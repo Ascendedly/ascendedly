@@ -63,7 +63,7 @@ export function Navbar() {
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-80">
-              <DropdownMenuLabel>Capability suite</DropdownMenuLabel>
+              <DropdownMenuLabel>Our services</DropdownMenuLabel>
               {services.map((service) => (
                 <DropdownMenuItem key={service.slug} asChild>
                   <Link href={`/services/${service.slug}`} className="flex flex-col items-start gap-0.5">

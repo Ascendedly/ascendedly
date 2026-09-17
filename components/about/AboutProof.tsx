@@ -1,45 +1,99 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useRef } from "react";
 import {
-  CalendarDays,
-  Layers,
-  Presentation,
-  UserCheck,
+  Briefcase,
+  FolderKanban,
+  Globe2,
+  Trophy,
   type LucideIcon,
 } from "lucide-react";
 
-const proof: {
-  value: string;
-  title: string;
+type Stat = {
+  value: number;
+  suffix?: string;
+  prefix?: string;
+  display?: string;
+  label: string;
   detail: string;
   icon: LucideIcon;
-}[] = [
+};
+
+const stats: Stat[] = [
   {
-    icon: Layers,
-    value: "5",
-    title: "Practices, one pod",
-    detail: "SEO, software, growth, apps, and Gen AI ship in the same operating cadence.",
+    icon: FolderKanban,
+    value: 100,
+    suffix: "+",
+    label: "Projects delivered",
+    detail: "SEO, software, growth, and AI projects delivered from start to finish.",
   },
   {
-    icon: CalendarDays,
-    value: "5 days",
-    title: "Paid discovery",
-    detail: "Constraint named, stack scored, and a clear go or no-go before any retainer.",
+    icon: Briefcase,
+    value: 70,
+    suffix: "+",
+    label: "Clients partnered",
+    detail: "B2B companies across SaaS, logistics, fintech, and professional services.",
   },
   {
-    icon: UserCheck,
-    value: "Named",
-    title: "Principals on the work",
-    detail: "Architecture and narrative stay with leadership after kickoff, not only the sales call.",
+    icon: Globe2,
+    value: 12,
+    suffix: "+",
+    label: "Countries served",
+    detail: "Remote teams supporting clients across North America, Europe, and Asia-Pacific.",
   },
   {
-    icon: Presentation,
-    value: "Board-ready",
-    title: "Operating plans",
-    detail: "Owners, investment range, and sprint outcomes you can brief without translation.",
+    icon: Trophy,
+    value: 98,
+    suffix: "%",
+    label: "Client retention",
+    detail: "Clients stay because senior people stay on the work after the project starts.",
   },
 ];
+
+function AnimatedStat({
+  value,
+  suffix = "",
+  prefix = "",
+  display,
+  className,
+}: {
+  value: number;
+  suffix?: string;
+  prefix?: string;
+  display?: string;
+  className?: string;
+}) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const motionValue = useMotionValue(0);
+  const spring = useSpring(motionValue, { stiffness: 90, damping: 18 });
+
+  useEffect(() => {
+    if (inView) motionValue.set(value);
+  }, [inView, motionValue, value]);
+
+  useEffect(() => {
+    const unsubscribe = spring.on("change", (latest) => {
+      if (!ref.current) return;
+      if (display) {
+        ref.current.textContent = display;
+        return;
+      }
+      ref.current.textContent = `${prefix}${Math.round(latest)}${suffix}`;
+    });
+    return unsubscribe;
+  }, [spring, prefix, suffix, display]);
+
+  return (
+    <span
+      ref={ref}
+      className={`tabular-nums bg-gradient-to-r from-slate-950 via-indigo-700 to-slate-950 bg-clip-text text-transparent ${className ?? ""}`}
+    >
+      {display ?? `${prefix}0${suffix}`}
+    </span>
+  );
+}
 
 export function AboutProof() {
   return (
@@ -52,31 +106,39 @@ export function AboutProof() {
       <div className="container relative">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-indigo-700">
-            Why operators choose Ascendedly
+            Stats
           </p>
+          <h2 className="mt-3 text-3xl font-semibold text-slate-950 md:text-4xl">
+            Why companies choose Ascendedly
+          </h2>
           <p className="mt-3 text-base text-slate-600 md:text-lg">
-            Concrete engagement signals, not agency folklore.
+            Delivery numbers you can measure, not agency stories.
           </p>
         </div>
 
         <dl className="mt-12 grid gap-0 overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_24px_60px_-40px_rgba(15,23,42,0.35)] sm:grid-cols-2 lg:grid-cols-4">
-          {proof.map((item, index) => (
+          {stats.map((item, index) => (
             <motion.div
-              key={item.title}
+              key={item.label}
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.06 }}
               className="group relative border-b border-slate-200 p-7 last:border-b-0 sm:odd:border-r sm:[&:nth-child(3)]:border-b-0 lg:border-b-0 lg:border-r lg:p-8 lg:last:border-r-0"
             >
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-50 to-indigo-50 text-indigo-700 ring-1 ring-indigo-100 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:shadow-sm">
+              <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-50 to-indigo-50 text-indigo-700 ring-1 ring-indigo-100 transition-transform duration-300 group-hover:-translate-y-0.5">
                 <item.icon className="h-5 w-5" aria-hidden />
               </div>
-              <dt className="mt-5 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
-                {item.value}
+              <dt className="mt-5 text-5xl font-semibold tracking-tight md:text-6xl">
+                <AnimatedStat
+                  value={item.value}
+                  suffix={item.suffix}
+                  prefix={item.prefix}
+                  display={item.display}
+                />
               </dt>
-              <dd className="mt-2">
-                <p className="text-sm font-semibold text-slate-900">{item.title}</p>
+              <dd className="mt-3">
+                <p className="text-sm font-semibold text-slate-900">{item.label}</p>
                 <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{item.detail}</p>
               </dd>
             </motion.div>

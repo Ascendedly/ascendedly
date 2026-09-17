@@ -12,7 +12,7 @@ const cases = [
     prefix: "+",
     suffix: "%",
     label: "organic reach",
-    context: "Programmatic SEO + Core Web Vitals",
+    context: "SEO programs plus faster page performance",
   },
   {
     metricValue: 99.9,
@@ -20,14 +20,14 @@ const cases = [
     suffix: "%",
     decimals: 1,
     label: "platform uptime",
-    context: "Cloud-native portal rebuild",
+    context: "Cloud portal rebuild",
   },
   {
     metricValue: 4,
     prefix: "",
     suffix: "x",
     label: "qualified meetings",
-    context: "Social narrative + paid velocity",
+    context: "Social content plus paid ads",
   },
 ];
 
@@ -91,10 +91,10 @@ export function CaseStudies() {
             Outcomes
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-white md:text-5xl">
-            Proof operators can put in a board packet
+            Results you can show your leadership team
           </h2>
           <p className="mt-4 text-base text-slate-200/90">
-            Measured in analytics and CRM, not vanity dashboards.
+            Measured in analytics and CRM, not empty dashboards.
           </p>
         </div>
 

@@ -10,7 +10,7 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Ascendedly | Enterprise Software, SEO & AI Transformation",
+    absolute: "Ascendedly | Software, SEO & AI for Growing Companies",
   },
   description: siteConfig.description,
   alternates: { canonical: "/" },

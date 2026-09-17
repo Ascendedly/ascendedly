@@ -9,13 +9,13 @@ import { AboutStory } from "@/components/about/AboutStory";
 import { CtaBand } from "@/components/home/CtaBand";
 
 export const metadata: Metadata = {
-  title: "About Ascendedly | Mission, Model & Leadership",
+  title: "About Ascendedly | Mission, How We Work & Leadership",
   description:
-    "Ascendedly is a B2B technology and growth agency. Learn how we unite search, software, growth, and generative AI under one accountable delivery surface.",
+    "Ascendedly is a B2B technology and growth agency. Learn how we bring SEO, software, growth marketing, and AI together under one accountable team.",
   keywords: [
     "digital agency leadership",
     "enterprise software partner",
-    "AI transformation firm",
+    "AI consulting firm",
     "B2B growth agency",
   ],
   alternates: { canonical: "/about-us" },

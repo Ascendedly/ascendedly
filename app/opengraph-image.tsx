@@ -33,10 +33,10 @@ export default function OpenGraphImage() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div style={{ fontSize: 68, fontWeight: 650, lineHeight: 1.05, maxWidth: 980 }}>
-            Enterprise software, SEO, and AI transformation.
+            Software, SEO, and AI for growing companies.
           </div>
           <div style={{ fontSize: 28, color: "#64748b", maxWidth: 820 }}>
-            Search engine optimization, growth marketing, and production AI, run as one revenue system.
+            SEO, growth marketing, software, and AI from one team that owns the outcome.
           </div>
         </div>
       </div>

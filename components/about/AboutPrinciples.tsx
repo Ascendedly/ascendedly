@@ -18,33 +18,33 @@ const principles: {
 }[] = [
   {
     icon: Gauge,
-    title: "Ship the constraint",
-    copy: "Every sprint removes a paid bottleneck: indexation, CAC, latency, or hallucination risk. Workshops are not the deliverable.",
+    title: "Fix what blocks growth",
+    copy: "Every sprint removes a real blocker: search visibility, customer acquisition cost, site speed, or AI reliability. Workshops alone are not the deliverable.",
   },
   {
     icon: Workflow,
-    title: "Interfaces over folklore",
-    copy: "Contracts, schemas, and runbooks travel with the work so systems remain understandable after a principal rotates.",
+    title: "Clear docs over tribal knowledge",
+    copy: "Contracts, data models, and runbooks travel with the work so your systems stay understandable when people change.",
   },
   {
     icon: BookOpenCheck,
-    title: "Measure like finance",
-    copy: "Search, growth, and product report in pipeline, retention, and cost-to-serve. Dashboards exist to change decisions.",
+    title: "Measure what money cares about",
+    copy: "SEO, growth, and product report on pipeline, retention, and cost to serve. Dashboards exist to help you make better decisions.",
   },
   {
     icon: ShieldCheck,
     title: "Security from day one",
-    copy: "Least privilege, audit trails, and clean offboarding are part of the first release, not a phase-two apology.",
+    copy: "Limited access, audit trails, and clean handoff of credentials are part of the first release, not a later apology.",
   },
   {
     icon: FileWarning,
-    title: "Radical scope honesty",
-    copy: "If the calculator says two quarters, we will not compress it into six weeks to win a statement of work.",
+    title: "Honest about scope",
+    copy: "If the work needs two quarters, we will not pretend it fits in six weeks just to win a contract.",
   },
   {
     icon: Handshake,
     title: "Leave you stronger",
-    copy: "Documentation, tokens, evaluation sets, and admin access are part of done. We are not a forever dependency by design.",
+    copy: "Docs, access keys, test sets, and admin rights are part of done. We are not designed to keep you dependent forever.",
   },
 ];
 
@@ -54,10 +54,10 @@ export function AboutPrinciples() {
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-indigo-700">
-            Principles
+            What we stand for
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">
-            How we behave when the demo cannot lie
+            How we work when results have to be real
           </h2>
         </div>
 

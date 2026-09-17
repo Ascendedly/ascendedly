@@ -43,7 +43,7 @@ export function AboutHero() {
             transition={{ delay: 0.06 }}
             className="mt-5 text-4xl font-semibold leading-[1.12] tracking-tight text-slate-950 md:text-5xl lg:text-[3.35rem]"
           >
-            Helping operators{" "}
+            Helping businesses{" "}
             <span className="relative inline-block px-1">
               <span
                 aria-hidden
@@ -51,7 +51,7 @@ export function AboutHero() {
               />
               succeed
             </span>{" "}
-            through Ascendedly systems that actually run.
+            with systems that actually work.
           </motion.h1>
 
           <motion.p
@@ -60,8 +60,8 @@ export function AboutHero() {
             transition={{ delay: 0.12 }}
             className="mt-6 text-base leading-relaxed text-slate-600 md:text-lg"
           >
-            Search, software, growth, and generative AI under one accountable delivery surface.
-            Built for teams who need production outcomes, not slideware.
+            SEO, software, growth marketing, and AI from one team that owns the outcome.
+            Built for companies that need live results, not presentation decks.
           </motion.p>
 
           <motion.div
@@ -71,7 +71,7 @@ export function AboutHero() {
             className="mt-8"
           >
             <Button asChild size="lg" className="rounded-lg px-7">
-              <Link href="/contact-us">Talk with leadership</Link>
+              <Link href="/contact-us">Talk with our team</Link>
             </Button>
           </motion.div>
         </div>

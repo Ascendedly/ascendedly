@@ -8,17 +8,17 @@ const steps = [
   {
     num: "01",
     title: "Brief",
-    copy: "Name the bottleneck: pipeline, product velocity, retention, or AI risk.",
+    copy: "Name the bottleneck: sales pipeline, slow delivery, retention, or AI risk.",
   },
   {
     num: "02",
     title: "Audit",
-    copy: "Score stack, analytics, and demand against commercial outcomes.",
+    copy: "Score your tech, analytics, and demand against real business results.",
   },
   {
     num: "03",
     title: "Scope",
-    copy: "Sprint board, investment range, and owners before a long retainer.",
+    copy: "A clear work plan, budget range, and owners before a long contract.",
   },
   {
     num: "04",
@@ -37,18 +37,18 @@ export function MethodSection() {
               Discovery
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-slate-950 md:text-4xl lg:text-5xl">
-              Five days. One operating plan. A clear next step.
+              Five days. One clear plan. A next step you can trust.
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-700">
-              No six-week alignment theater. A paid week that ends with scope you can brief to a
-              board.
+              No six-week alignment meetings. A paid week that ends with scope you can share with
+              your leadership team.
             </p>
           </div>
           <Link
             href="/contact-us"
             className="inline-flex h-12 items-center justify-center gap-2 self-start rounded-md bg-slate-950 px-5 text-sm font-medium text-white transition hover:bg-indigo-700"
           >
-            Book the sprint
+            Book the week
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

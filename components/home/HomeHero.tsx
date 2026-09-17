@@ -37,7 +37,7 @@ export function HomeHero() {
               <span className="absolute inset-0 animate-ping rounded-full bg-cyan-400/70" />
               <span className="relative h-2 w-2 rounded-full bg-cyan-500" />
             </span>
-            Enterprise growth + engineering partner
+            Growth and engineering partner for modern companies
           </motion.div>
 
           <motion.p
@@ -55,7 +55,7 @@ export function HomeHero() {
             transition={{ delay: 0.1, duration: 0.65 }}
             className="mt-4 max-w-3xl text-4xl font-semibold leading-[1.15] text-slate-950 [text-wrap:wrap] md:text-6xl lg:text-[4.35rem]"
           >
-            <span className="block">The operating system for</span>
+            <span className="block">The system behind your</span>
             <TypewriterWord
               className="mt-1"
               words={["search", "software", "growth", "AI", "pipeline", "retention"]}
@@ -68,8 +68,8 @@ export function HomeHero() {
             transition={{ delay: 0.18, duration: 0.6 }}
             className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600"
           >
-            Search, software, and AI transformation under one accountable delivery surface. Built
-            for operators who need revenue systems, not slideware.
+            SEO, software, and AI from one team that owns the outcome. Built for companies that
+            need systems that grow revenue, not presentation decks.
           </motion.p>
 
           <motion.div
@@ -85,7 +85,7 @@ export function HomeHero() {
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link href="#services">See the suite</Link>
+              <Link href="#services">See our services</Link>
             </Button>
           </motion.div>
 
@@ -97,8 +97,8 @@ export function HomeHero() {
           >
             {[
               { label: "Discovery", value: "5 days" },
-              { label: "Practices", value: "5" },
-              { label: "Delivery", value: "Named pods" },
+              { label: "Services", value: "5" },
+              { label: "Delivery", value: "Named teams" },
             ].map((item) => (
               <div key={item.label}>
                 <dt className="text-[11px] uppercase tracking-[0.16em] text-slate-500">
@@ -132,9 +132,9 @@ export function HomeHero() {
               transition={{ delay: 0.55 }}
               className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/20 bg-white/15 p-4 text-white backdrop-blur-md"
             >
-              <p className="text-[11px] uppercase tracking-[0.18em] text-cyan-200">Live method</p>
+              <p className="text-[11px] uppercase tracking-[0.18em] text-cyan-200">How we start</p>
               <p className="mt-2 text-sm font-medium leading-relaxed">
-                Brief → Audit → Scope → Decide. A paid week that ends with a clear go / no-go.
+                Brief → Audit → Scope → Decide. A paid week that ends with a clear yes or no.
               </p>
             </motion.div>
           </div>
@@ -146,7 +146,7 @@ export function HomeHero() {
             className="absolute -left-4 top-10 hidden rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-glow backdrop-blur md:block"
           >
             <p className="text-[11px] uppercase tracking-[0.16em] text-slate-500">Focus</p>
-            <p className="mt-1 text-sm font-semibold text-slate-900">Revenue systems</p>
+            <p className="mt-1 text-sm font-semibold text-slate-900">Systems that grow revenue</p>
           </motion.div>
 
           <motion.div
