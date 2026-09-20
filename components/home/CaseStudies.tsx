@@ -74,7 +74,7 @@ function AnimatedMetric({
 
 export function CaseStudies() {
   return (
-    <section className="relative overflow-hidden py-28">
+    <section id="projects" className="relative scroll-mt-24 overflow-hidden py-28">
       <Image
         src={media.abstractBrandFlowRibbons.src}
         alt=""

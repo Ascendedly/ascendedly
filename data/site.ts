@@ -48,24 +48,20 @@ export const siteConfig = {
         { label: "App Development", href: "/services/app-development" },
       ],
     },
+    { label: "Projects", href: "/projects" },
     { label: "Blogs", href: "/blogs" },
     { label: "Contact Us", href: "/contact-us" },
   ],
   social: [
     {
+      name: "Facebook",
+      href: "https://www.facebook.com/ascendedly",
+      title: "Ascendedly on Facebook",
+    },
+    {
       name: "LinkedIn",
       href: "https://www.linkedin.com/company/ascendedly",
       title: "Ascendedly on LinkedIn",
-    },
-    {
-      name: "X",
-      href: "https://x.com/ascendedly",
-      title: "Ascendedly on X (Twitter)",
-    },
-    {
-      name: "GitHub",
-      href: "https://github.com/ascendedly",
-      title: "Ascendedly on GitHub",
     },
     {
       name: "Instagram",

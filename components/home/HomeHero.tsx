@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { TypewriterWord } from "@/components/home/TypewriterWord";
+import { HeroContactForm } from "@/components/home/HeroContactForm";
 import { media } from "@/data/media";
 
 export function HomeHero() {
@@ -25,7 +26,7 @@ export function HomeHero() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_18%,rgba(217,70,239,0.12),transparent_28%),radial-gradient(circle_at_12%_72%,rgba(34,211,238,0.14),transparent_30%)]" />
       </div>
 
-      <div className="container relative grid min-h-[88vh] items-center gap-12 py-24 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:py-28">
+      <div className="container relative grid min-h-[88vh] items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-24">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -55,11 +56,13 @@ export function HomeHero() {
             transition={{ delay: 0.1, duration: 0.65 }}
             className="mt-4 max-w-3xl text-4xl font-semibold leading-[1.15] text-slate-950 [text-wrap:wrap] md:text-6xl lg:text-[4.35rem]"
           >
-            <span className="block">The system behind your</span>
-            <TypewriterWord
-              className="mt-1"
-              words={["search", "software", "growth", "AI", "pipeline", "retention"]}
-            />
+            <span className="block">The system behind</span>
+            <span className="mt-1 inline-flex flex-wrap items-baseline gap-x-3">
+              <span>your</span>
+              <TypewriterWord
+                words={["search", "software", "growth", "AI", "pipeline", "retention"]}
+              />
+            </span>
           </motion.h1>
 
           <motion.p
@@ -79,85 +82,28 @@ export function HomeHero() {
             className="mt-8 flex flex-wrap gap-3"
           >
             <Button asChild size="lg">
-              <Link href="/contact-us">
-                Book Discovery Call
+              <Link href="/projects">
+                Projects
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link href="#services">See our services</Link>
+              <Link href="/about-us">About Us</Link>
             </Button>
           </motion.div>
-
-          <motion.dl
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.36, duration: 0.6 }}
-            className="mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-slate-200/90 pt-6"
-          >
-            {[
-              { label: "Discovery", value: "5 days" },
-              { label: "Services", value: "5" },
-              { label: "Delivery", value: "Named teams" },
-            ].map((item) => (
-              <div key={item.label}>
-                <dt className="text-[11px] uppercase tracking-[0.16em] text-slate-500">
-                  {item.label}
-                </dt>
-                <dd className="mt-1 text-lg font-semibold text-slate-950">{item.value}</dd>
-              </div>
-            ))}
-          </motion.dl>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-md lg:max-w-none"
+          initial={{ opacity: 0, x: 28, y: 12 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ delay: 0.22, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mx-auto w-full max-w-lg lg:max-w-none"
         >
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/70 shadow-[0_40px_100px_-40px_rgba(79,70,229,0.55)]">
-            <Image
-              src={media.teamCollaborationWorkspace.src}
-              alt={media.teamCollaborationWorkspace.alt}
-              fill
-              sizes="(max-width: 1024px) 90vw, 40vw"
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.55 }}
-              className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/20 bg-white/15 p-4 text-white backdrop-blur-md"
-            >
-              <p className="text-[11px] uppercase tracking-[0.18em] text-cyan-200">How we start</p>
-              <p className="mt-2 text-sm font-medium leading-relaxed">
-                Brief → Audit → Scope → Decide. A paid week that ends with a clear yes or no.
-              </p>
-            </motion.div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            className="absolute -left-4 top-10 hidden rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-glow backdrop-blur md:block"
-          >
-            <p className="text-[11px] uppercase tracking-[0.16em] text-slate-500">Focus</p>
-            <p className="mt-1 text-sm font-semibold text-slate-900">Systems that grow revenue</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.85 }}
-            className="absolute -right-3 bottom-28 hidden rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-glow backdrop-blur md:block"
-          >
-            <p className="text-[11px] uppercase tracking-[0.16em] text-slate-500">Stack</p>
-            <p className="mt-1 text-sm font-semibold text-slate-900">SEO · Web · Gen AI</p>
-          </motion.div>
+          <div
+            aria-hidden
+            className="absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-to-br from-cyan-400/20 via-indigo-400/15 to-fuchsia-400/20 blur-2xl"
+          />
+          <HeroContactForm />
         </motion.div>
       </div>
     </section>

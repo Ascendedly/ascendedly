@@ -1,24 +1,15 @@
 import Link from "next/link";
-import { Clock, Github, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 import { services } from "@/data/servicesData";
 import { siteConfig } from "@/data/site";
 import { Logo } from "@/components/layout/Logo";
 
 const socialIcons = {
+  Facebook: Facebook,
   LinkedIn: Linkedin,
-  X: XIcon,
-  GitHub: Github,
   Instagram: Instagram,
 } as const;
-
-function XIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.725-8.835L1.254 2.25H8.08l4.25 5.688L18.244 2.25Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
-    </svg>
-  );
-}
 
 export function Footer() {
   return (
@@ -58,6 +49,7 @@ export function Footer() {
               {[
                 ["About Us", "/about-us"],
                 ["Services", "/#services"],
+                ["Projects", "/projects"],
                 ["Blogs", "/blogs"],
                 ["Contact Us", "/contact-us"],
               ].map(([label, href]) => (
@@ -130,7 +122,12 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <div className="flex gap-3 rounded-2xl border border-slate-200/80 bg-slate-50/60 p-3">
+                <a
+                  href={siteConfig.mapLinkUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex gap-3 rounded-2xl border border-slate-200/80 bg-slate-50/60 p-3 transition hover:border-indigo-200 hover:bg-indigo-50/40"
+                >
                   <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center self-start rounded-xl bg-white text-indigo-700 shadow-sm ring-1 ring-indigo-100">
                     <MapPin className="h-5 w-5" />
                   </span>
@@ -138,13 +135,13 @@ export function Footer() {
                     <span className="block text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
                       Address
                     </span>
-                    <span className="mt-0.5 block text-sm font-medium leading-relaxed text-slate-800">
+                    <span className="mt-0.5 block text-sm font-medium leading-relaxed text-slate-800 group-hover:text-indigo-700">
                       {siteConfig.address.line1}
                       <br />
                       {siteConfig.address.line2}
                     </span>
                   </span>
-                </div>
+                </a>
               </li>
               <li>
                 <div className="flex gap-3 rounded-2xl border border-slate-200/80 bg-slate-50/60 p-3">

@@ -28,6 +28,7 @@ import { cn } from "@/lib/utils";
 
 const primaryLinks = [
   { label: "About Us", href: "/about-us" },
+  { label: "Projects", href: "/projects" },
   { label: "Blogs", href: "/blogs" },
   { label: "Contact Us", href: "/contact-us" },
 ] as const;
@@ -75,6 +76,10 @@ export function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
 
+          <NavLink href="/projects" active={pathname.startsWith("/projects")}>
+            Projects
+          </NavLink>
+
           <NavLink href="/blogs" active={pathname.startsWith("/blogs")}>
             Blogs
           </NavLink>
@@ -101,16 +106,14 @@ export function Navbar() {
               </SheetHeader>
 
               <div className="mt-8 flex flex-col gap-1">
-                {primaryLinks.slice(0, 2).map((link) => (
-                  <SheetClose asChild key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="rounded-lg px-2 py-3 text-base font-medium text-foreground hover:bg-slate-100"
-                    >
-                      {link.label}
-                    </Link>
-                  </SheetClose>
-                ))}
+                <SheetClose asChild>
+                  <Link
+                    href="/about-us"
+                    className="rounded-lg px-2 py-3 text-base font-medium text-foreground hover:bg-slate-100"
+                  >
+                    About Us
+                  </Link>
+                </SheetClose>
 
                 <Accordion type="single" collapsible className="px-2">
                   <AccordionItem value="services" className="border-b-0">
@@ -134,7 +137,7 @@ export function Navbar() {
                   </AccordionItem>
                 </Accordion>
 
-                {primaryLinks.slice(2).map((link) => (
+                {primaryLinks.slice(1).map((link) => (
                   <SheetClose asChild key={link.href}>
                     <Link
                       href={link.href}
