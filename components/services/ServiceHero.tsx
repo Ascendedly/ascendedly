@@ -22,7 +22,9 @@ export function ServiceHero({ service }: { service: ServiceData }) {
             Home
           </Link>
           <ChevronRight className="h-3.5 w-3.5" />
-          <span>Services</span>
+          <Link href="/services" className="hover:text-foreground">
+            Services
+          </Link>
           <ChevronRight className="h-3.5 w-3.5" />
           <span className="text-foreground">{service.shortName}</span>
         </nav>

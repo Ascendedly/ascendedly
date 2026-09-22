@@ -39,7 +39,7 @@ export const siteConfig = {
     { label: "About Us", href: "/about-us" },
     {
       label: "Services",
-      href: "/#services",
+      href: "/services",
       children: [
         { label: "SEO", href: "/services/seo" },
         { label: "SMM", href: "/services/smm" },

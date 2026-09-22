@@ -46,7 +46,13 @@ function formatFieldValue(field: Extract<CalculatorField, { type: "slider" }>, v
   return formatNumber(value);
 }
 
-export function ServiceCalculator({ service }: { service: ServiceData }) {
+export function ServiceCalculator({
+  service,
+  hideIntro = false,
+}: {
+  service: ServiceData;
+  hideIntro?: boolean;
+}) {
   const router = useRouter();
   const [values, setValues] = useState<CalculatorValues>(() =>
     defaultsFromFields(service.calculator.fields)
@@ -75,15 +81,24 @@ export function ServiceCalculator({ service }: { service: ServiceData }) {
   return (
     <SectionBackdrop id="calculator" variant="mesh" className="scroll-mt-24 py-24">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-indigo-600">
-            Live scope calculator
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold md:text-4xl">{service.calculator.title}</h2>
-          <p className="mt-4 text-muted-foreground">{service.calculator.subtitle}</p>
-        </div>
+        {!hideIntro ? (
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-indigo-600">
+              Live scope calculator
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">{service.calculator.title}</h2>
+            <p className="mt-4 text-muted-foreground">{service.calculator.subtitle}</p>
+          </div>
+        ) : (
+          <div className="mx-auto max-w-2xl text-center">
+            <h3 className="text-2xl font-semibold text-slate-950 md:text-3xl">
+              {service.calculator.title}
+            </h3>
+            <p className="mt-3 text-muted-foreground">{service.calculator.subtitle}</p>
+          </div>
+        )}
 
-        <div className="mt-12 grid items-start gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className={`grid items-start gap-8 lg:grid-cols-[1.15fr_0.85fr] ${hideIntro ? "mt-10" : "mt-12"}`}>
           <div className="space-y-6 rounded-2xl border border-border/70 bg-white/90 p-6 shadow-sm backdrop-blur-sm md:p-8">
             {service.calculator.fields.map((field) => (
               <div key={field.id} className="space-y-3">

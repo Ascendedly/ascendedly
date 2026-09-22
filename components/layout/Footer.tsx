@@ -48,7 +48,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               {[
                 ["About Us", "/about-us"],
-                ["Services", "/#services"],
+                ["Services", "/services"],
                 ["Projects", "/projects"],
                 ["Blogs", "/blogs"],
                 ["Contact Us", "/contact-us"],

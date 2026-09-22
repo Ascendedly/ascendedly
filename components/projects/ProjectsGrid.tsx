@@ -88,42 +88,48 @@ function ProjectCard({ project }: { project: Project }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.98 }}
       transition={{ duration: 0.28 }}
-      className="group overflow-hidden rounded-[1.5rem] border border-slate-200/90 bg-white shadow-[0_24px_60px_-42px_rgba(15,23,42,0.35)] transition hover:-translate-y-1 hover:border-indigo-200 hover:shadow-[0_28px_70px_-40px_rgba(79,70,229,0.35)]"
+      className="group h-full overflow-hidden rounded-[1.5rem] border border-slate-200/90 bg-white shadow-[0_24px_60px_-42px_rgba(15,23,42,0.35)] transition hover:-translate-y-1 hover:border-indigo-200 hover:shadow-[0_28px_70px_-40px_rgba(79,70,229,0.35)]"
     >
-      <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
-        <Image
-          src={project.image.src}
-          alt={project.image.alt}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          className="object-cover transition duration-500 group-hover:scale-[1.04]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-transparent" />
-        <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-indigo-700 shadow-sm">
-          {project.category}
-        </span>
-      </div>
-
-      <div className="p-5 md:p-6">
-        <p className="text-xs font-medium uppercase tracking-[0.16em] text-slate-400">
-          {project.client}
-        </p>
-        <h3 className="mt-2 text-lg font-semibold tracking-tight text-slate-950 md:text-xl">
-          {project.title}
-        </h3>
-        <p className="mt-3 text-sm leading-relaxed text-slate-600">{project.summary}</p>
-        <p className="mt-4 text-sm font-semibold text-indigo-700">{project.outcome}</p>
-        <div className="mt-5 flex flex-wrap gap-2">
-          {project.stack.map((item) => (
-            <span
-              key={item}
-              className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-600"
-            >
-              {item}
-            </span>
-          ))}
+      <Link href={`/projects/${project.slug}`} className="flex h-full flex-col">
+        <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
+          <Image
+            src={project.image.src}
+            alt={project.image.alt}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            className="object-cover object-center transition duration-500 group-hover:scale-[1.04]"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
+          <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-indigo-700 shadow-sm">
+            {project.category}
+          </span>
         </div>
-      </div>
+
+        <div className="flex flex-1 flex-col p-5 md:p-6">
+          <p className="text-xs font-medium uppercase tracking-[0.16em] text-slate-400">
+            {project.client}
+          </p>
+          <h3 className="mt-2 text-lg font-semibold tracking-tight text-slate-950 md:text-xl">
+            {project.title}
+          </h3>
+          <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600">{project.summary}</p>
+          <p className="mt-4 text-sm font-semibold text-indigo-700">{project.outcome}</p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {project.stack.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-600"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+          <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-700">
+            View project
+            <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </span>
+        </div>
+      </Link>
     </motion.article>
   );
 }

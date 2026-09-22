@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { media } from "@/data/media";
 
-export function ProjectsHero() {
+export function ServicesHero() {
   return (
     <section className="relative overflow-hidden border-b border-slate-200 bg-[#f7f8fb]">
       <div
@@ -23,7 +23,7 @@ export function ProjectsHero() {
             animate={{ opacity: 1, y: 0 }}
             className="text-xs font-semibold uppercase tracking-[0.28em] text-indigo-600"
           >
-            Projects
+            Services
           </motion.p>
 
           <motion.h1
@@ -32,15 +32,15 @@ export function ProjectsHero() {
             transition={{ delay: 0.06 }}
             className="mt-5 text-4xl font-semibold leading-[1.12] tracking-tight text-slate-950 md:text-5xl lg:text-[3.35rem]"
           >
-            Work that ships — and{" "}
+            Five capabilities.{" "}
             <span className="relative inline-block px-1">
               <span
                 aria-hidden
                 className="absolute inset-x-0 bottom-1 -z-10 h-[0.55em] rounded-sm bg-cyan-200/70 md:bottom-1.5"
               />
-              proves
+              One team
             </span>{" "}
-            itself in the numbers.
+            that owns the outcome.
           </motion.h1>
 
           <motion.p
@@ -49,8 +49,8 @@ export function ProjectsHero() {
             transition={{ delay: 0.12 }}
             className="mt-6 text-base leading-relaxed text-slate-600 md:text-lg"
           >
-            SEO, platforms, apps, social growth, and AI systems built for companies that need
-            outcomes they can show their leadership team.
+            SEO, social growth, web platforms, generative AI, and mobile apps — planned and shipped
+            together so your stack, pipeline, and product move as one system.
           </motion.p>
 
           <motion.div
@@ -60,13 +60,13 @@ export function ProjectsHero() {
             className="mt-8 flex flex-wrap gap-3"
           >
             <Button asChild size="lg" className="rounded-lg px-7">
-              <Link href="#work">
-                Browse the work
+              <Link href="#service-breakdown">
+                Explore services
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="rounded-lg px-7">
-              <Link href="/contact-us">Start a project</Link>
+              <Link href="/contact-us">Book discovery</Link>
             </Button>
           </motion.div>
         </div>
@@ -81,10 +81,10 @@ export function ProjectsHero() {
             aria-hidden
             className="absolute -inset-3 -z-10 rounded-[2rem] bg-gradient-to-br from-[#5098F8]/25 via-[#6068F8]/20 to-[#9020F8]/25 blur-2xl"
           />
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-white shadow-[0_40px_80px_-48px_rgba(79,70,229,0.45)] sm:aspect-[3/4]">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-[1.75rem] border border-white shadow-[0_40px_80px_-48px_rgba(79,70,229,0.45)]">
             <Image
-              src={media.ascendedlyClientPrototypeReview.src}
-              alt={media.ascendedlyClientPrototypeReview.alt}
+              src={media.teamCollaborationWorkspace.src}
+              alt={media.teamCollaborationWorkspace.alt}
               fill
               priority
               sizes="(max-width: 1024px) 90vw, 42vw"
