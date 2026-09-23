@@ -28,7 +28,7 @@ function ServiceCard({
       >
         <div className="relative aspect-[16/9] overflow-hidden bg-slate-100">
           <Image
-            src={service.image}
+            src={service.homeImage}
             alt={service.imageAlt}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"

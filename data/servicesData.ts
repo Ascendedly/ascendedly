@@ -64,6 +64,7 @@ export interface ServiceData {
   metaDescription: string;
   keywords: string[];
   image: string;
+  homeImage: string;
   imageAlt: string;
   accentFrom: string;
   accentTo: string;
@@ -98,7 +99,8 @@ export const services: ServiceData[] = [
       "Core Web Vitals",
       "organic growth",
     ],
-    image: "/images/services/seo-analytics-dashboard.webp",
+    image: "/images/services/seo-domain-overview.webp",
+    homeImage: "/images/services/seo-analytics-dashboard.webp",
     imageAlt:
       "SEO domain overview dashboard showing AI visibility, organic traffic, keywords, and backlink metrics",
     accentFrom: "from-indigo-500",
@@ -221,7 +223,8 @@ export const services: ServiceData[] = [
       "paid social",
       "brand narrative",
     ],
-    image: "/images/services/smm-ads-analytics-dashboard.webp",
+    image: "/images/services/smm-social-performance.webp",
+    homeImage: "/images/services/smm-ads-analytics-dashboard.webp",
     imageAlt:
       "Social media ads analytics dashboard with reach, impressions, CTR, ROAS, and campaign performance charts",
     accentFrom: "from-fuchsia-500",
@@ -335,7 +338,8 @@ export const services: ServiceData[] = [
       "cloud-native platforms",
       "React engineering",
     ],
-    image: "/images/services/web-platforms-and-code-workstation.webp",
+    image: "/images/services/web-platforms-workstation.webp",
+    homeImage: "/images/services/web-platforms-and-code-workstation.webp",
     imageAlt:
       "Dual-monitor web development desk with website platform logos and a dark code editor",
     accentFrom: "from-cyan-400",
@@ -463,7 +467,8 @@ export const services: ServiceData[] = [
       "LLM fine-tuning",
       "enterprise AI",
     ],
-    image: "/images/services/gen-ai-platforms-and-n8n-workflow.webp",
+    image: "/images/services/gen-ai-web-apps.webp",
+    homeImage: "/images/services/gen-ai-platforms-and-n8n-workflow.webp",
     imageAlt:
       "Gen AI web apps board beside an n8n-style automation workflow for chatbots and customer support",
     accentFrom: "from-violet-500",
@@ -584,7 +589,8 @@ export const services: ServiceData[] = [
       "enterprise mobile",
       "cross-platform engineering",
     ],
-    image: "/images/services/mobile-app-technologies-devices.webp",
+    image: "/images/services/mobile-app-technologies.webp",
+    homeImage: "/images/services/mobile-app-technologies-devices.webp",
     imageAlt:
       "Mobile devices showing app technology platforms and a mobile development coding environment",
     accentFrom: "from-emerald-400",

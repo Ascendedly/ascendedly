@@ -83,8 +83,8 @@ export function ProjectsHero() {
           />
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-white shadow-[0_40px_80px_-48px_rgba(79,70,229,0.45)] sm:aspect-[3/4]">
             <Image
-              src={media.ascendedlyClientPrototypeReview.src}
-              alt={media.ascendedlyClientPrototypeReview.alt}
+              src={media.projectsHeroDashboardReview.src}
+              alt={media.projectsHeroDashboardReview.alt}
               fill
               priority
               sizes="(max-width: 1024px) 90vw, 42vw"

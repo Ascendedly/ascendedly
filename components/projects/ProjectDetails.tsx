@@ -2,13 +2,15 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 
 import type { Project } from "@/data/projectsData";
+import { ProjectBookForm } from "@/components/projects/ProjectBookForm";
+import { Button } from "@/components/ui/button";
 
 export function ProjectDetails({ project }: { project: Project }) {
   return (
-    <section className="border-b border-slate-200 bg-white py-20 md:py-28">
+    <section id="project-details" className="scroll-mt-24 border-b border-slate-200 bg-white py-20 md:py-28">
       <div className="container">
         <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <div className="space-y-12">
@@ -21,7 +23,7 @@ export function ProjectDetails({ project }: { project: Project }) {
                 Challenge
               </p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 md:text-3xl">
-                What was broken
+                The challenge
               </h2>
               <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
                 {project.challenge}
@@ -37,7 +39,7 @@ export function ProjectDetails({ project }: { project: Project }) {
                 Approach
               </p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 md:text-3xl">
-                How Ascendedly delivered
+                How we delivered
               </h2>
               <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
                 {project.approach}
@@ -63,7 +65,7 @@ export function ProjectDetails({ project }: { project: Project }) {
                 Results
               </p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 md:text-3xl">
-                What changed
+                The results
               </h2>
               <ul className="mt-6 space-y-4">
                 {project.results.map((result) => (
@@ -73,6 +75,15 @@ export function ProjectDetails({ project }: { project: Project }) {
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-8">
+                <Button asChild size="lg" className="rounded-full px-7">
+                  <Link href="#project-gallery">
+                    View project
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
             </motion.div>
           </div>
 
@@ -107,37 +118,17 @@ export function ProjectDetails({ project }: { project: Project }) {
                   <dd className="mt-1 text-sm font-semibold text-indigo-700">{project.outcome}</dd>
                 </div>
               </dl>
+
+              <Button asChild size="lg" variant="outline" className="mt-6 w-full rounded-full">
+                <Link href="#project-gallery">
+                  View project
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </Button>
             </div>
 
-            <div className="rounded-[1.5rem] border border-slate-200 bg-white p-6 md:p-7">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                Stack
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.stack.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-700"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                Services used
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.services.map((item) => (
-                  <Link
-                    key={item}
-                    href="/services"
-                    className="rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1.5 text-xs font-medium text-indigo-700 transition hover:bg-indigo-100"
-                  >
-                    {item}
-                  </Link>
-                ))}
-              </div>
+            <div id="book-service" className="scroll-mt-28">
+              <ProjectBookForm projectTitle={project.title} category={project.category} />
             </div>
           </aside>
         </div>

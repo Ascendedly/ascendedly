@@ -3,89 +3,60 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-import { projectCategories, projects, type Project } from "@/data/projectsData";
+import type { ServiceData } from "@/data/servicesData";
+import {
+  getProjectsByCategory,
+  serviceSlugToCategory,
+  type Project,
+} from "@/data/projectsData";
 import { cn } from "@/lib/utils";
 
-export function ProjectsGrid() {
-  const [active, setActive] = useState<(typeof projectCategories)[number]>("All");
+export function ServiceRelatedProjects({ service }: { service: ServiceData }) {
+  const category = serviceSlugToCategory(service.slug);
+  const related = category ? getProjectsByCategory(category) : [];
   const [hoveredSlug, setHoveredSlug] = useState<string | null>(null);
 
-  const filtered =
-    active === "All" ? projects : projects.filter((project) => project.category === active);
+  if (!related.length) return null;
 
   return (
-    <section id="work" className="scroll-mt-24 bg-white py-20 md:py-28">
+    <section className="border-b border-slate-200 bg-[#f7f8fb] py-20 md:py-28">
       <div className="container">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-indigo-600">
-            Selected work
+            Related work
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
-            Built across growth, product, and AI
+            {service.shortName} projects
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-600">
-            Filter by capability to see how we approach each kind of engagement.
+            Selected engagements delivered under this capability.
           </p>
         </div>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-2">
-          {projectCategories.map((category) => {
-            const isActive = category === active;
-            return (
-              <button
-                key={category}
-                type="button"
-                onClick={() => setActive(category)}
-                className={cn(
-                  "rounded-full border px-4 py-2 text-sm font-medium transition",
-                  isActive
-                    ? "border-transparent bg-gradient-to-r from-[#5098F8] via-[#6068F8] to-[#9020F8] text-white shadow-sm"
-                    : "border-slate-200 bg-white text-slate-600 hover:border-indigo-200 hover:text-indigo-700"
-                )}
-              >
-                {category}
-              </button>
-            );
-          })}
+        <div className="mt-12 flex flex-wrap justify-center gap-4 lg:gap-5">
+          {related.map((project, index) => (
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              index={index}
+              isActive={hoveredSlug === project.slug}
+              onActivate={() => setHoveredSlug(project.slug)}
+              onDeactivate={() => setHoveredSlug(null)}
+            />
+          ))}
         </div>
 
-        <motion.div layout className="mt-12 flex flex-wrap justify-center gap-4 lg:gap-5">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((project) => (
-              <ProjectCard
-                key={project.slug}
-                project={project}
-                isActive={hoveredSlug === project.slug}
-                onActivate={() => setHoveredSlug(project.slug)}
-                onDeactivate={() => setHoveredSlug(null)}
-              />
-            ))}
-          </AnimatePresence>
-        </motion.div>
-
-        <div className="mt-14 overflow-hidden rounded-[1.75rem] border border-indigo-100 bg-gradient-to-br from-[#5098F8]/10 via-white to-[#9020F8]/10 px-6 py-12 text-center shadow-[0_24px_60px_-48px_rgba(79,70,229,0.35)] md:px-10 md:py-14">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-indigo-600">
-            Next step
-          </p>
-          <h3 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 md:text-3xl">
-            Have a build in mind?
-          </h3>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate-600 md:text-base">
-            Tell us the bottleneck — acquisition, product, delivery, or AI — and we will map a clear
-            first sprint.
-          </p>
-          <div className="mt-8 flex justify-center">
-            <Link
-              href="/contact-us"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#5098F8] via-[#6068F8] to-[#9020F8] px-7 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:opacity-95"
-            >
-              Contact Us
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
-          </div>
+        <div className="mt-12 text-center">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-700 transition hover:text-indigo-900"
+          >
+            View all projects
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>
@@ -94,22 +65,23 @@ export function ProjectsGrid() {
 
 function ProjectCard({
   project,
+  index,
   isActive,
   onActivate,
   onDeactivate,
 }: {
   project: Project;
+  index: number;
   isActive: boolean;
   onActivate: () => void;
   onDeactivate: () => void;
 }) {
   return (
     <motion.article
-      layout
       initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.98 }}
-      transition={{ duration: 0.28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.06, duration: 0.28 }}
       className="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc((100%-2.5rem)/3)]"
     >
       <Link
@@ -144,7 +116,6 @@ function ProjectCard({
           {project.category}
         </span>
 
-        {/* Default label */}
         <div
           className={cn(
             "absolute inset-x-0 bottom-0 z-[1] bg-gradient-to-t from-slate-950/90 via-slate-950/55 to-transparent px-5 pb-5 pt-16 transition duration-300 md:px-6 md:pb-6",
@@ -160,7 +131,6 @@ function ProjectCard({
           </p>
         </div>
 
-        {/* Hover reveal */}
         <div
           className={cn(
             "absolute inset-0 z-[2] flex flex-col justify-end bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent p-5 md:p-6",

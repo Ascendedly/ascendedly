@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { ServiceCalculator } from "@/components/services/ServiceCalculator";
 import { ServiceHero } from "@/components/services/ServiceHero";
+import { ServiceRelatedProjects } from "@/components/services/ServiceRelatedProjects";
 import { WhatsIncluded } from "@/components/services/WhatsIncluded";
 import { CtaBand } from "@/components/home/CtaBand";
 import { getServiceBySlug, serviceSlugs } from "@/data/servicesData";
@@ -49,6 +50,7 @@ export default function ServicePage({ params }: ServicePageProps) {
       <ServiceHero service={service} />
       <WhatsIncluded service={service} />
       <ServiceCalculator service={service} />
+      <ServiceRelatedProjects key={service.slug} service={service} />
       <CtaBand />
     </>
   );

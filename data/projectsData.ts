@@ -1,4 +1,4 @@
-import { media } from "@/data/media";
+import { media, type MediaAsset } from "@/data/media";
 
 export type ProjectCategory = "SEO" | "SMM" | "Web" | "Gen AI" | "App";
 
@@ -10,7 +10,8 @@ export type Project = {
   summary: string;
   outcome: string;
   stack: string[];
-  image: (typeof media)[keyof typeof media];
+  image: MediaAsset;
+  gallery: MediaAsset[];
   challenge: string;
   approach: string;
   results: string[];
@@ -32,6 +33,11 @@ export const projects: Project[] = [
     outcome: "+240% organic reach in 6 months",
     stack: ["Technical SEO", "Content systems", "Core Web Vitals", "Analytics"],
     image: media.seoAnalyticsDashboard,
+    gallery: [
+      media.seoDomainOverview,
+      media.seoAnalyticsDashboard,
+      media.projectsHeroDashboardReview,
+    ],
     challenge:
       "Organic traffic had stalled. Category pages were slow, thin, and competing with paid media for the same buyers.",
     approach:
@@ -59,6 +65,11 @@ export const projects: Project[] = [
     outcome: "4x qualified meetings",
     stack: ["LinkedIn Ads", "Meta Ads", "Creative velocity", "CRM tracking"],
     image: media.smmAdsAnalyticsDashboard,
+    gallery: [
+      media.smmSocialPerformance,
+      media.smmAdsAnalyticsDashboard,
+      media.teamCollaborationWorkspace,
+    ],
     challenge:
       "Organic posts and paid ads told different stories. Sales could not use social as a real pipeline source.",
     approach:
@@ -86,6 +97,11 @@ export const projects: Project[] = [
     outcome: "99.9% platform uptime",
     stack: ["Next.js", "Design system", "Auth", "CI/CD"],
     image: media.webPlatformsAndCodeWorkstation,
+    gallery: [
+      media.webPlatformsWorkstation,
+      media.webPlatformsAndCodeWorkstation,
+      media.ascendedlyClientPrototypeReview,
+    ],
     challenge:
       "The legacy portal was slow, hard to change, and risky to release. Support tickets kept rising around basic account tasks.",
     approach:
@@ -113,6 +129,11 @@ export const projects: Project[] = [
     outcome: "38% fewer repetitive tickets",
     stack: ["RAG", "Workflow automation", "n8n", "Guardrails"],
     image: media.genAiPlatformsAndN8nWorkflow,
+    gallery: [
+      media.genAiWebApps,
+      media.genAiPlatformsAndN8nWorkflow,
+      media.projectsHeroDashboardReview,
+    ],
     challenge:
       "Support spent hours answering the same policy and product questions. Existing chatbots hallucinated and lacked safe controls.",
     approach:
@@ -140,6 +161,11 @@ export const projects: Project[] = [
     outcome: "2.1x faster job completion reporting",
     stack: ["React Native", "Offline sync", "Push alerts", "API design"],
     image: media.mobileAppTechnologiesDevices,
+    gallery: [
+      media.mobileAppTechnologies,
+      media.mobileAppTechnologiesDevices,
+      media.ascendedlyClientPrototypeReview,
+    ],
     challenge:
       "Field teams relied on calls and spreadsheets. Job status was delayed, and managers lacked a live view of work in progress.",
     approach:
@@ -167,6 +193,11 @@ export const projects: Project[] = [
     outcome: "Steady inbound from target accounts",
     stack: ["Brand narrative", "Creative testing", "Audience design"],
     image: media.smmAdsAnalyticsDashboard,
+    gallery: [
+      media.smmSocialPerformance,
+      media.smmAdsAnalyticsDashboard,
+      media.officeReceptionHarborView,
+    ],
     challenge:
       "Leadership had strong expertise, but social activity was inconsistent and did not support business development.",
     approach:
@@ -194,6 +225,11 @@ export const projects: Project[] = [
     outcome: "+61% demo request rate",
     stack: ["Next.js", "SEO foundations", "CRO", "Analytics"],
     image: media.ascendedlyClientPrototypeReview,
+    gallery: [
+      media.ascendedlyClientPrototypeReview,
+      media.webPlatformsWorkstation,
+      media.seoDomainOverview,
+    ],
     challenge:
       "The old site was slow, unclear, and hard to measure. Demo requests lagged behind product quality.",
     approach:
@@ -221,6 +257,11 @@ export const projects: Project[] = [
     outcome: "Hours saved every week across ops",
     stack: ["Embeddings", "Access control", "Knowledge base", "Chat UI"],
     image: media.genAiPlatformsAndN8nWorkflow,
+    gallery: [
+      media.genAiWebApps,
+      media.genAiPlatformsAndN8nWorkflow,
+      media.teamCollaborationWorkspace,
+    ],
     challenge:
       "Policies and playbooks lived across shared drives. New hires and ops leads spent too long hunting for the right answer.",
     approach:
@@ -283,4 +324,25 @@ export function getRelatedProjects(slug: string, limit = 3): Project[] {
   );
 
   return [...sameCategory, ...others].slice(0, limit);
+}
+
+export function getProjectsByCategory(category: ProjectCategory): Project[] {
+  return projects.filter((project) => project.category === category);
+}
+
+export function serviceSlugToCategory(slug: string): ProjectCategory | null {
+  switch (slug) {
+    case "seo":
+      return "SEO";
+    case "smm":
+      return "SMM";
+    case "web-development":
+      return "Web";
+    case "gen-ai":
+      return "Gen AI";
+    case "app-development":
+      return "App";
+    default:
+      return null;
+  }
 }
